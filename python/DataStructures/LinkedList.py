@@ -1,5 +1,5 @@
 
-class LinkedList(object):
+class LinkedList:
     def __init__(self, head=None):
         self.head = head
 
@@ -61,3 +61,25 @@ class LinkedList(object):
                 previous.next = current.next.next
                 current.next = None
                 return
+    
+    def insert_first(self, new_element):
+        #insert element to the head of the list
+        new_element.next = self.head
+        self.head = new_element
+
+    def delete_first(self):
+        firstElement = None
+        if self.head:
+            if self.head.next:
+                firstElement = self.head
+                #Remove the head, making the next element as the head
+                self.head = self.head.next
+                return firstElement
+            else:
+                #In this case we only have the head to delete
+                firstElement = self.head
+                self.head = None
+                return firstElement
+        else:
+            #we have no elements in the list, return None
+            return firstElement
