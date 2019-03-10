@@ -1,14 +1,21 @@
 
 class LinkedList:
-    def __init__(self, head=None):
+    def __init__(self, head=None, tail=None):
         self.head = head
+        self.tail = tail
 
     def append(self, new_element):
+        """
+        Adds an element to the end of the list.
+        Saves a reference to it at the tail property, in case head already exists
+        """
         current = self.head
         if self.head:
             while current.next:
                 current = current.next
             current.next = new_element
+            #save a reference to the last appended element in the tail property.
+            self.tail = new_element
         else:
             self.head = new_element
 
