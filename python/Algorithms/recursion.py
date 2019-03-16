@@ -1,8 +1,6 @@
 def get_fibonacci(position):
-    if position == 0:
-        return 0
-    if position == 1:
-        return 1
+    if position == 0 or position == 1:
+        return position
     else:
         return get_fibonacci(position - 1) + get_fibonacci(position - 2)
 
